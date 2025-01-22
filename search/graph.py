@@ -25,27 +25,29 @@ class Graph:
             raise ValueError(f"Start node {start} does not exist in the graph.")
 
         visited = set()  # To track visited nodes
-        queue = [[start]] 
+        traversal_order = []  # To store traversal order
+        queue = [[start]]  # Queue to store paths
 
         while queue:
-            path = queue.pop(0)  
-            node = path[-1]
+            path = queue.pop(0)  # Dequeue the first path
+            node = path[-1]  # Get the last node in the path
 
-            if node not in visited:#if a node is not visited, mark it as visited
+            if node not in visited:
                 visited.add(node)
+                traversal_order.append(node)  # Maintain traversal order
 
-                if end is not None and node == end: #if reached the end, return the path
-                    return path
+                if end is not None and node == end:
+                    return path  # Return the shortest path when `end` is reached
 
                 for neighbor in self.graph.neighbors(node):
-                    if neighbor not in visited: 
+                    if neighbor not in visited:
                         new_path = list(path)
                         new_path.append(neighbor)
                         queue.append(new_path)
 
         if end is not None:
-            return None
-        return list(visited)
+            return None  # If no path to `end` is found
+        return traversal_order
 
 
 

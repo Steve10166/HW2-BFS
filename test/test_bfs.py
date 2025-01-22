@@ -21,13 +21,16 @@ def test_bfs_traversal():
 
     # result = tiny.bfs('Martin Kampmann', '31540829')
     
-    assert tiny is not None
+    assert tiny is not None #test got correct number of nodes
     assert len(tiny) == 30, (
         f"Traversal should include 30 nodes, but got {len(tiny)}"
     )
-    order = tiny_graph.bfs("31806696", "Martin Kampmann")
-    print(order)
+
+    order = tiny_graph.bfs("31806696", "Martin Kampmann") #test return in correct order
+    #print(order)
     assert order == ['31806696', 'Luke Gilbert', '33483487', 'Martin Kampmann']
+    shortestpath = tiny_graph.bfs('31806696')
+    print(shortestpath)
 
 
     pass
@@ -55,6 +58,8 @@ def test_bfs():
     shortestpath = citation.bfs('Steven Brenner', 'Neil Risch')
     print(shortestpath)
     assert shortestpath == ['Steven Brenner', '31564432', 'Neil Risch']
+
+    
 
     # Test BFS traversal
     traversal_result = citation.bfs("Luke Gilbert")
@@ -94,4 +99,3 @@ def test_bfs():
 
 
 test_bfs_traversal()
-# test_bfs()

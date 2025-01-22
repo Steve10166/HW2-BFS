@@ -1,3 +1,15 @@
+# Method description 
+
+The bfs function is implemented within the Graph class to perform breadth-first traversal and pathfinding on directed graphs. It is versatile and handles various scenarios, including searching for the shortest path between nodes.
+
+Parameters
+	start: The starting node for the BFS traversal.
+	end (optional): The target node for pathfinding. 
+	
+List of Nodes: If end is not specified, the function returns a list of nodes in the order they were visited during the BFS traversal.
+Shortest Path: If end is specified and a path exists, the function returns a list of nodes representing the shortest path from start to end.
+None: If end is specified and no path exists, the function returns None.
+
 # Assignment 2
 Breadth-first search
 
