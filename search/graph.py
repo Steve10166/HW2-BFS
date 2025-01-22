@@ -21,7 +21,31 @@ class Graph:
         * If there is an end node input and a path does not exist, return None
 
         """
-        return
+        if start not in self.graph:
+            raise ValueError(f"Start node {start} does not exist in the graph.")
+
+        visited = set()  # To track visited nodes
+        queue = [[start]] 
+
+        while queue:
+            path = queue.pop(0)  
+            node = path[-1]
+
+            if node not in visited:#if a node is not visited, mark it as visited
+                visited.add(node)
+
+                if end is not None and node == end: #if reached the end, return the path
+                    return path
+
+                for neighbor in self.graph.neighbors(node):
+                    if neighbor not in visited: 
+                        new_path = list(path)
+                        new_path.append(neighbor)
+                        queue.append(new_path)
+
+        if end is not None:
+            return None
+        return list(visited)
 
 
 
